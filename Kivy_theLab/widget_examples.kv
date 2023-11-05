@@ -1,0 +1,80 @@
+<ImagesExample@GridLayout>:
+    cols: 3
+
+    Image:
+        source: "image/27.jpg"
+
+    Image:
+        # get the image according to the given address
+        source: "image/27.jpg"
+
+        # allow picture to stretch according to the window
+        allow_stretch: True
+
+        # Keep picture full of its grid, can only apply when "allow_stretch: True"
+        keep_ratio: False
+
+    Image:
+        source: "image/27.jpg"
+
+        # Speed up the gif
+        # anim_delay: 1/68
+
+<WidgetsExample>
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_state(self)
+        size_hint: None, 1
+        width: "100dp"
+
+    Button:
+        text: "Click here"
+        on_press: root.on_button_click()
+        disabled: not root.count_enable
+
+    Label:
+        text: root.my_text
+        font_name: "fonts/svgafix.fon"
+        font_size: "80dp"
+        color: 1, 0.5, 1,1
+
+    Switch:
+        on_active: root.on_switch_active(self)
+        size_hint: None, 1
+        width: "100dp"
+        active: True
+
+    Slider:
+        min: 0
+        max: 100
+        value: 50
+        on_value: root. on_slider_value(self)
+        orientation: "vertical"
+        disabled: not root.switch_enable
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: root.slider_value_txt
+        ProgressBar:
+            max: 100
+            value: int(root.slider_value_txt)
+
+    TextInput:
+        size_hint: None, 1
+        width: "100dp"
+
+        # Set up default text
+        text: "foo"
+
+        # Only have one line, press "enter" will not happen
+        multiline: False
+
+        # Text updated only press "enter"
+        on_text_validate: root.on_text_validate(self)
+
+    Label:
+        text: "Your name is: " + root.text_input_str
+
+
