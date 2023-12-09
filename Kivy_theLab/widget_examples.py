@@ -2,6 +2,7 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.gridlayout import GridLayout
 
+# load .kv file
 Builder.load_file("widget_examples.kv")
 class WidgetsExample(GridLayout):
     my_text = StringProperty("You click 0 times!")
